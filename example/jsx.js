@@ -1,5 +1,11 @@
-const bemClassNames = require('../dist/bem-style-classnames').default;
+const generateClassNames = require('../dist/lib/jsx').default;
 
+// step1: global options
+const bemClassNames = generateClassNames({
+	debug: true,
+});
+
+// step2: local
 const { bem } = bemClassNames('nav');
 
 console.info(bem()); // nav
