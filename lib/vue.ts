@@ -18,6 +18,10 @@ const func = (bem: Function) => {
 	};
 };
 
+/**
+ * used in vue
+ * @param options
+ */
 function generateBemClassNames(options?: IBemOptions) {
 	return function bemClassnames(blockname: string) {
 		const { bem } = bemClassNames(blockname, options);

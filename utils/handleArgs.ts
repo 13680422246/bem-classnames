@@ -2,8 +2,9 @@ import { isJson } from '.';
 import { IArgs } from '..';
 
 /**
- * 处理参数
- * @param args css类名，支持string,数组,对象三种形式
+ * process arguments
+ * 处理IArgs类型的参数
+ * @param args
  */
 function handleArgs(...args: IArgs): string[] {
 	const res: string[] = [];

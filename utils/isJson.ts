@@ -1,13 +1,15 @@
 /**
- * 判断一个对象是否为JSON对象
- * @param obj 对象
+ * Determine if obj is an json object
+ * 判断obj是否为JSON对象
+ * @param { any } obj
  */
-function isJson(data: any): boolean {
-	// 1.Object类型
-	// 2.原型链指向Object
+function isJson(obj: any): boolean {
+	// 依据
+	// 1.类型是Object
+	// 2.obj的原型链指向Object
 	if (
-		typeof data == 'object' &&
-		Object.prototype.toString.call(data).toLowerCase() === '[object object]'
+		typeof obj == 'object' &&
+		Object.prototype.toString.call(obj).toLowerCase() === '[object object]'
 	) {
 		return true;
 	}

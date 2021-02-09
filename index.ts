@@ -18,26 +18,29 @@ function bemClassNames(this: any, blockName?: string, options?: IBemOptions) {
 	blockName = blockName ?? '';
 
 	/**
-	 * 生成react支持的类名形式
-	 * @param args css类名，支持string,数组,对象三种形式
+	 * To generate the name of the class
+	 * 生成类名
+	 * @param this
+	 * @param args
 	 * @return {string} classname
 	 */
 	function classNames(this: any, ...args: IArgs): string {
 		let res: string[] = [];
-		// 对参数的处理
+		// handle args
 		res.push(...handleArgs(...args));
-		// 对this的处理
+		// handle this
 		return map2string(this, res, options?.debug).join(' ');
 	}
 
 	/**
+	 * use classname with bem style
 	 * 使用BEM风格的classname
-	 * @param this 绑定的this对象
-	 * @param elementName BEM中的block-name__element-name
-	 * @param args BEM中的modifier类名，支持classNames的写法
+	 * @param this
+	 * @param elementName element-name in bem
+	 * @param args modifier in bem
 	 */
 	function bem(this: any, elementName?: string, ...args: IArgs): string {
-		// 提供默认选项
+		// 默认选项
 		elementName = elementName ?? '';
 		// 处理前缀
 		let prefixName: string = '';
@@ -51,11 +54,11 @@ function bemClassNames(this: any, blockName?: string, options?: IBemOptions) {
 			console.error('please input block-name or element-name');
 		}
 		let res: string[] = [prefixName];
-		// 对参数的处理
+		// handle args
 		for (const mod of handleArgs(...args)) {
 			res.push(`${prefixName}${options?.modifierSep}${mod}`);
 		}
-		// 对this的处理
+		// handle this
 		return map2string(this, res, options?.debug).join(' ');
 	}
 
